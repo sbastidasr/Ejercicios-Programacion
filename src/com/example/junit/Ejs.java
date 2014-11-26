@@ -1,8 +1,6 @@
 package com.example.junit;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class Ejs {
 
@@ -176,5 +174,80 @@ public class Ejs {
         return -1;
     }
 
+    public static int ejercicio11(int[] entrada) {
+        java.util.Arrays.sort(entrada);
+        int current;
+        int currentCount;
+        int numFinal=0;
+        int finalCount=0;
+
+        for(int i=0; i < entrada.length-1; i++) {
+            currentCount = 1;
+            current = entrada[i];
+            while (i < entrada.length - 1 && entrada[i + 1] == current) {
+                currentCount++;
+                i++;
+            }
+
+            if (currentCount > finalCount)
+            {
+                finalCount=currentCount;
+                numFinal=current;
+            }
+        }
+        return numFinal;
+    }
+
+
+    public static int ejercicio12(int[] entrada) {
+
+        for(int i=1; i < entrada.length-1; i++) {
+            int rightSum=0;
+            int leftSum=0;
+
+            //i pos actual
+
+            //check left sum
+            int leftPointer=i-1;
+            while (leftPointer>=0) {
+                leftSum += entrada[leftPointer];
+                leftPointer--;
+            }
+
+            //check right sum
+            int rightPointer=i+1;
+            while (rightPointer<=entrada.length-1) {
+                rightSum += entrada[rightPointer];
+                rightPointer++;
+            }
+
+            if (rightSum==leftSum)
+                return i;
+        }
+
+        return -1;
+    }
+
+    public static int[] ejercicio13(int[] entrada) {
+    int[] salida =new int[entrada.length];
+    int j=0;
+
+        for (int i=0; i<entrada.length; i++){//poner neg
+            if (entrada[i] < 0 ){
+                salida[j]=entrada[i];
+                j++;
+            }
+        }
+
+        for (int i=0; i<entrada.length; i++){// poner pos
+            if (entrada[i] >= 0 ){// poner pos
+                salida[j]=entrada[i];
+                j++;
+            }
+        }
+
+        return salida;
+
+    }
 
     }
