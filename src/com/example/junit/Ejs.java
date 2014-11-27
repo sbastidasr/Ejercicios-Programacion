@@ -250,4 +250,57 @@ public class Ejs {
 
     }
 
+    public static int ejercicio14(int seed1,int seed2, int pos) {
+        if (seed1>255 || seed2>255 ||pos>255 || seed1<0 ||seed2<0 ||pos<0)
+        {return -1;}
+    pos--;
+            String salida1= ""+(seed1+(1*(  (pos/2) )));
+            String salida2= ""+(seed2+(1*(  (pos/2) )));
+
+            if (((pos+1)%2)==0) {
+                return (Integer.parseInt(salida2+salida1));
+            }
+            else
+            {
+                return (Integer.parseInt(salida1+salida2));
+            }
+    }
+
+
+    public static int ejercicio15(int[] arreglo) {
+        int sum=0;
+        int sumActual=0;
+
+
+        for (int tamanoRecorredor=2; tamanoRecorredor<=arreglo.length; tamanoRecorredor++) //loop que pasa por los tamanos del recorredor
+        {
+            //iterar con ese recorredor por todo el arreglo
+
+            for (int recorridoRecorredor=0; recorridoRecorredor<= arreglo.length-tamanoRecorredor; recorridoRecorredor++) {
+
+                for (int iteraraRecorredor = 0; iteraraRecorredor < tamanoRecorredor; iteraraRecorredor++) {
+                    if (iteraraRecorredor == 0) {
+                        sumActual = arreglo[iteraraRecorredor];
+                    } else {
+                        sumActual += arreglo[iteraraRecorredor];
+                    }
+                }
+
+                if (sumActual > sum) {
+                    sum = sumActual;
+                }
+            }
+        }
+        return sum;
+    }
+
+    public static int ejercicio16(int seed1,int seed2,int pos) {
+
+
+        if (seed1 > 255 || seed2 > 255 || pos > 255 || seed1 < 0 || seed2 < 0 || pos < 0) {
+            return -1;
+        }
+    }
+
+
     }
